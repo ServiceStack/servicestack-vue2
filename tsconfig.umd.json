@@ -1,0 +1,11 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "outDir": "dist\\",
+    "target": "es5",
+    "module": "umd",
+    "moduleResolution": "node",
+    "experimentalDecorators": true,
+    "lib": ["es2015","dom","dom.iterable"]
+   }
+}

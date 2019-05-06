@@ -1,0 +1,38 @@
+{
+  "name": "@servicestack/vue",
+  "version": "1.0.0",
+  "author": "ServiceStack",
+  "description": "Vue controls for ServiceStack Apps",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ServiceStack/servicestack-vue.git"
+  },
+  "keywords": [
+    "servicestack",
+    "bootstrap",
+    "vue",
+    "validation",
+    "controls"
+  ],
+  "scripts": {
+    "pretest": "tsc",
+    "publish": "tsc && tsc -p tsconfig.umd.json && move dist\\index.js dist\\servicestack-vue.umd.js && bash inject-umd.sh && move src\\index.js dist && copy src\\index.d.ts dist",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "files": [
+    "dist/index.js",
+    "dist/index.d.ts",
+    "dist/servicestack-vue.umd.js"
+  ],
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "dependencies": {
+    "@servicestack/client": "^1.0.20",
+    "vue": "^2.6.10",
+    "vue-class-component": "^7.0.2",
+    "vue-property-decorator": "^8.1.0"
+  },
+  "devDependencies": {
+    "typescript": "^3.4.5"
+  }
+}
