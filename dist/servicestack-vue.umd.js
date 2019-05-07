@@ -23,14 +23,15 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
         if (v !== undefined) module.exports = v;
     }
     else if (typeof define === "function" && define.amd) {
-        define(["require", "exports", "vue-property-decorator", "@servicestack/client"], factory);
+        define(["require", "exports", "vue", "vue-property-decorator", "@servicestack/client"], factory);
     }
     else if (typeof window != "undefined") factory(window.require||function(){}, window["@servicestack/vue"]={});
 })(function (require, exports) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
-    var vue_property_decorator_1 = require("vue-property-decorator");
-    var client_1 = require("@servicestack/client");
+    var vue_1 = require("vue") || { default: window.Vue };
+    var vue_property_decorator_1 = require("vue-property-decorator") || window["vue-property-decorator"];
+    var client_1 = require("@servicestack/client") || window["@servicestack/client"];
     var ErrorSummary = /** @class */ (function (_super) {
         __extends(ErrorSummary, _super);
         function ErrorSummary() {
@@ -51,9 +52,9 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
             vue_property_decorator_1.Component({ template: "<div v-if=\"errorSummary\" class=\"alert alert-danger mt-2\">{{errorSummary}}</div>" })
         ], ErrorSummary);
         return ErrorSummary;
-    }(vue_property_decorator_1.Vue));
+    }(vue_1.default));
     exports.ErrorSummary = ErrorSummary;
-    vue_property_decorator_1.Vue.component('ErrorSummary', ErrorSummary);
+    vue_1.default.component('ErrorSummary', ErrorSummary);
     var Input = /** @class */ (function (_super) {
         __extends(Input, _super);
         function Input() {
@@ -135,9 +136,9 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
             })
         ], Input);
         return Input;
-    }(vue_property_decorator_1.Vue));
+    }(vue_1.default));
     exports.Input = Input;
-    vue_property_decorator_1.Vue.component('Input', Input);
+    vue_1.default.component('Input', Input);
     function inputSelectedValues(input) {
         if (input.form == null)
             throw new Error("multiple values must be within a <form> element");
@@ -218,9 +219,9 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
             })
         ], Select);
         return Select;
-    }(vue_property_decorator_1.Vue));
+    }(vue_1.default));
     exports.Select = Select;
-    vue_property_decorator_1.Vue.component('Select', Select);
+    vue_1.default.component('Select', Select);
     function selectedOptions(select) {
         var selectedValues = [];
         for (var i = 0; i < select.options.length; i++) {
@@ -267,7 +268,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
             })
         ], CheckBox);
         return CheckBox;
-    }(vue_property_decorator_1.Vue));
+    }(vue_1.default));
     exports.CheckBox = CheckBox;
-    vue_property_decorator_1.Vue.component('CheckBox', CheckBox);
+    vue_1.default.component('CheckBox', CheckBox);
 });

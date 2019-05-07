@@ -1,4 +1,4 @@
-import { Vue } from 'vue-property-decorator';
+import Vue from 'vue';
 export declare class ErrorSummary extends Vue {
     responseStatus: object;
     except: string;

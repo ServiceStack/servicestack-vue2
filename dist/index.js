@@ -19,6 +19,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+var vue_1 = require("vue");
 var vue_property_decorator_1 = require("vue-property-decorator");
 var client_1 = require("@servicestack/client");
 var ErrorSummary = /** @class */ (function (_super) {
@@ -41,9 +42,9 @@ var ErrorSummary = /** @class */ (function (_super) {
         vue_property_decorator_1.Component({ template: "<div v-if=\"errorSummary\" class=\"alert alert-danger mt-2\">{{errorSummary}}</div>" })
     ], ErrorSummary);
     return ErrorSummary;
-}(vue_property_decorator_1.Vue));
+}(vue_1.default));
 exports.ErrorSummary = ErrorSummary;
-vue_property_decorator_1.Vue.component('ErrorSummary', ErrorSummary);
+vue_1.default.component('ErrorSummary', ErrorSummary);
 var Input = /** @class */ (function (_super) {
     __extends(Input, _super);
     function Input() {
@@ -125,9 +126,9 @@ var Input = /** @class */ (function (_super) {
         })
     ], Input);
     return Input;
-}(vue_property_decorator_1.Vue));
+}(vue_1.default));
 exports.Input = Input;
-vue_property_decorator_1.Vue.component('Input', Input);
+vue_1.default.component('Input', Input);
 function inputSelectedValues(input) {
     if (input.form == null)
         throw new Error("multiple values must be within a <form> element");
@@ -208,9 +209,9 @@ var Select = /** @class */ (function (_super) {
         })
     ], Select);
     return Select;
-}(vue_property_decorator_1.Vue));
+}(vue_1.default));
 exports.Select = Select;
-vue_property_decorator_1.Vue.component('Select', Select);
+vue_1.default.component('Select', Select);
 function selectedOptions(select) {
     var selectedValues = [];
     for (var i = 0; i < select.options.length; i++) {
@@ -257,6 +258,6 @@ var CheckBox = /** @class */ (function (_super) {
         })
     ], CheckBox);
     return CheckBox;
-}(vue_property_decorator_1.Vue));
+}(vue_1.default));
 exports.CheckBox = CheckBox;
-vue_property_decorator_1.Vue.component('CheckBox', CheckBox);
+vue_1.default.component('CheckBox', CheckBox);

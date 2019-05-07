@@ -1,5 +1,7 @@
-import { Vue, Component, Prop, Emit, Provide } from 'vue-property-decorator';
+import Vue from 'vue';
+import { Component, Prop, Emit } from 'vue-property-decorator';
 import { errorResponse, errorResponseExcept } from '@servicestack/client';
+
 
 @Component({ template: `<div v-if="errorSummary" class="alert alert-danger mt-2">{{errorSummary}}</div>` })
 export class ErrorSummary extends Vue {
