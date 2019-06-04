@@ -1,12 +1,36 @@
 {
   "name": "@servicestack/vue",
   "version": "1.0.0",
-  "author": "ServiceStack",
-  "description": "Vue controls for ServiceStack Apps",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/ServiceStack/servicestack-vue.git"
+  "scripts": {
+    "build": "cross-env NODE_ENV=production rollup --config build/rollup.config.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "pretest": "tsc",
+    "uglify": "uglifyjs dist\\servicestack-vue.umd.js --compress --mangle -o dist\\servicestack-vue.min.js",
+    "publish": "tsc && tsc -p tsconfig.umd.json && move dist\\index.js dist\\servicestack-vue.umd.js && bash inject-umd.sh && npm run uglify && move src\\index.js dist && copy src\\index.d.ts dist"
   },
+  "dependencies": {
+    "@servicestack/client": "^1.0.23",
+    "vue": "^2.6.10",
+    "vue-class-component": "^7.1.0",
+    "vue-property-decorator": "^8.1.1"
+  },
+  "devDependencies": {
+    "cross-env": "^5.2.0",
+    "minimist": "^1.2.0",
+    "rollup": "^1.12.1",
+    "rollup-plugin-buble": "^0.19.6",
+    "rollup-plugin-commonjs": "^10.0.0",
+    "rollup-plugin-replace": "^2.2.0",
+    "rollup-plugin-terser": "^4.0.4",
+    "rollup-plugin-typescript2": "^0.21.1",
+    "rollup-plugin-vue": "^5.0.0",
+    "tslib": "^1.9.3",
+    "typescript": "^3.5.1",
+    "vue": "^2.6.10",
+    "vue-template-compiler": "^2.6.10"
+  },
+  "description": "Vue controls for ServiceStack Apps",
+  "types": "dist/index.d.ts",
   "keywords": [
     "servicestack",
     "bootstrap",
@@ -14,27 +38,15 @@
     "validation",
     "controls"
   ],
-  "scripts": {
-    "pretest": "tsc",
-    "uglify": "uglifyjs dist\\servicestack-vue.umd.js --compress --mangle -o dist\\servicestack-vue.min.js",
-    "publish": "tsc && tsc -p tsconfig.umd.json && move dist\\index.js dist\\servicestack-vue.umd.js && bash inject-umd.sh && npm run uglify && move src\\index.js dist && copy src\\index.d.ts dist",
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
+  "author": "ServiceStack",
   "files": [
-    "dist/index.js",
-    "dist/index.d.ts",
-    "dist/servicestack-vue.umd.js",
-    "dist/servicestack-vue.min.js"
+    "dist/*"
   ],
   "main": "dist/index.js",
-  "types": "dist/index.d.ts",
-  "dependencies": {
-    "@servicestack/client": "^1.0.20",
-    "vue": "^2.6.10",
-    "vue-class-component": "^7.0.2",
-    "vue-property-decorator": "^8.1.0"
-  },
-  "devDependencies": {
-    "typescript": "^3.4.5"
+  "unpkg": "dist/servicestack-vue.umd.js",
+  "module": "dist/index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ServiceStack/servicestack-vue.git"
   }
 }
