@@ -3,10 +3,7 @@
   "version": "1.0.1",
   "scripts": {
     "build": "cross-env NODE_ENV=production rollup --config build/rollup.config.js",
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "pretest": "tsc",
-    "uglify": "uglifyjs dist\\servicestack-vue.umd.js --compress --mangle -o dist\\servicestack-vue.min.js",
-    "publish": "tsc && tsc -p tsconfig.umd.json && move dist\\index.js dist\\servicestack-vue.umd.js && bash inject-umd.sh && npm run uglify && move src\\index.js dist && copy src\\index.d.ts dist"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
     "@servicestack/client": "^1.0.23",
