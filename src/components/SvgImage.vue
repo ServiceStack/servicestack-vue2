@@ -1,5 +1,5 @@
 <template>
-    <img :src="src" :style="style" >
+    <img :src="src" :style="styles" >
 </template>
 
 <script lang="ts">
@@ -12,7 +12,6 @@ export class SvgImage extends Vue {
     @Prop({ default: '' }) fill!: string;
     @Prop({ default: '' }) width!: number;
     @Prop({ default: '' }) height!: number;
-    @Prop({ default: '' }) style!: any;
     @Prop({ default: '' }) baseUrl!: string;
 
     protected get src() {
@@ -26,7 +25,7 @@ export class SvgImage extends Vue {
     }
 
     protected get styles() {
-        const ret = Object.assign({}, this.style || {});
+        const ret:any = {};
         if (this.width) {
             ret.width = this.width;
         }
