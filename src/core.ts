@@ -55,7 +55,7 @@ export class BootstrapBase extends Vue {
         };
         const ret: any = {};
         Object.keys(props).forEach((k: any) => {
-            if (props[k] !== false) {
+            if (props[k] !== false && props[k] != null) {
                 ret[k] = props[k] || true;
             }
         });

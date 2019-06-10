@@ -21,18 +21,20 @@ function install(Vue: any) {
 
   Vue.component('Forbidden', Forbidden);
   Vue.component('error-summary', ErrorSummary);
+
   Vue.component('v-input', Input);
   Vue.component('v-select', Select);
   Vue.component('v-checkbox', CheckBox);
   Vue.component('v-button', Button);
   Vue.component('v-svg', SvgImage);
   Vue.component('v-link', Link);
-  Vue.component('v-link-button', LinkButton);
   Vue.component('v-nav', Nav);
-  Vue.component('v-navbar', Navbar);
-  Vue.component('v-nav-link', NavLink);
-  Vue.component('v-nav-button-group', NavButtonGroup);
-  Vue.component('v-nav-link-button', NavLinkButton);
+
+  Vue.component('link-button', LinkButton);
+  Vue.component('navbar', Navbar);
+  Vue.component('nav-link', NavLink);
+  Vue.component('nav-button-group', NavButtonGroup);
+  Vue.component('nav-link-button', NavLinkButton);
 }
 
 // Create module definition for Vue.use()

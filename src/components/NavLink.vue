@@ -71,6 +71,8 @@ export class NavLink extends Vue {
     protected get activeCls() {
         return activeClassNav(this.item, this.useActivePath);
     }
+
+    protected activeClassNav(x: NavItem, activePath: string) { return activeClassNav(x, activePath); }
 }
 export default NavLink;
 </script>

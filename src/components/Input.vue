@@ -23,7 +23,7 @@
             :placeholder="placeholder" />
         <small v-if="!isCheck && help" class="text-muted">{{help}}</small>
         <div v-if="hasError" class="invalid-feedback">{{ errorField }}</div>
-    </div>    
+    </div>
 </template>
 
 <script lang="ts">
