@@ -1,6 +1,6 @@
 <template>
     <div v-if="items.length" :class="opt.navClass">
-        <v-nav-link v-for="(item) in items" :key="item.href || item.label" :item="item"
+        <nav-link v-for="(item) in items" :key="item.href || item.label" :item="item"
                     :options="opt" :activePath="opt.activePath" :navItemClass="opt.navItemClass" />
     </div>
 </template>

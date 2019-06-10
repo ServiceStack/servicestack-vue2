@@ -1,6 +1,6 @@
 <template>
     <div v-if="items.length" :class="cls">
-        <v-nav-link-button v-for="item in items" :key="item.href || item.label" @click="(e) => $emit('click',e)" 
+        <nav-link-button v-for="item in items" :key="item.href || item.label" @click="(e) => $emit('click',e)" 
                            :item="item" :options="opt" v-bind="{ block:block, ...$props }" />
     </div>
 </template>
