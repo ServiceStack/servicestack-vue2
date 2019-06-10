@@ -54,8 +54,9 @@ if (!argv.format || argv.format === 'es') {
     ...baseConfig,
     output: {
       file: 'dist/index.js',
-      format: 'esm',
+      format: 'umd',
       exports: 'named',
+      name: '@servicestack/vue'
     },
     plugins: [
       ...baseConfig.plugins.preVue,
