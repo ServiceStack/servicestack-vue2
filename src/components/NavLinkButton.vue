@@ -2,7 +2,7 @@
     <v-link v-if="show"
             :to="hashPrefix + item.href" @click="(e) => $emit('click',e)" :id="item.id"
             :class="[item.className, opt.navItemClass, activeCls, btnCls]">
-        <i v-if="iconCls" :class="iconCls"></i>
+        <i v-if="item.iconClass" :class="item.iconClass"></i>
         {{item.label}}
     </v-link>
 </template>
@@ -11,14 +11,6 @@
 import { Vue, Component, Prop } from 'vue-property-decorator';
 import { NavItem, NavOptions, NavDefaults, NavLinkDefaults, trimEnd, pick, activeClassNav, btnClasses } from '@servicestack/client';
 import { NavBase, optionProps, sanitizeOptions, BootstrapBase, routePath } from '../core';
-
-function parseIconHtml(html: string) {
-    const match = /class="([^"]+)/.exec(html);
-    if (match != null) {
-        return match[1];
-    }
-    return null;
-}
 
 @Component
 export class NavLinkButton extends BootstrapBase {
@@ -54,10 +46,6 @@ export class NavLinkButton extends BootstrapBase {
 
     protected get btnCls() {
         return btnClasses(this.bootstrapClasses);
-    }
-
-    protected get iconCls() {
-        return parseIconHtml(this.item.iconHtml);
     }
 }
 export default NavLinkButton;
