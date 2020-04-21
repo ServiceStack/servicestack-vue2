@@ -48,6 +48,7 @@ export class Input extends Vue {
     @Prop({ default: null }) responseStatus!: object;
     @Prop({ default: 'text' }) type!: string;
     @Prop({ default: '' }) id!: string;
+    @Prop({ default: '' }) statusField!: string;
     @Prop({ default: '' }) label!: string;
     @Prop({ default: '' }) help!: string;
     @Prop({ default: 'form-control-lg' }) inputClass!: string;
@@ -58,7 +59,7 @@ export class Input extends Vue {
 
     protected concat(prefix: string, id: string, suffix: string) { return prefix + id + (suffix || ''); }
     protected get isCheck(){ return this.type === 'radio' || this.type === 'checkbox'; }
-    protected get errorField(){ return errorResponse.call(this.$props, this.id); }
+    protected get errorField(){ return errorResponse.call(this.$props, this.statusField || this.id); }
     protected get hasError(){ return !!this.errorField; }
     protected get kvpValues() {
         const kvps = (this.values || []).map((x) => typeof x === 'string'
