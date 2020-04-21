@@ -5,14 +5,16 @@
             <template v-if="type === 'radio'">
                 <div v-for="kvp in kvpValues" :key="kvp.key" :class="['custom-control','custom-radio',{'custom-control-inline':inline}]">
                     <input type="radio" :id="concat(id,'-',kvp.key)" :name="id" :value="kvp.key"
-                        :class="['custom-control-input',inputClass]" :checked="value==kvp.key" @change="onInput" />
+                        :class="['custom-control-input',inputClass]" :checked="value==kvp.key" @change="onInput" 
+                        v-bind="$attrs" />
                     <label class="custom-control-label" :for="concat(id,'-',kvp.key)">{{kvp.value}}</label>
                 </div>
             </template>
             <template v-if="type === 'checkbox'">
                 <div v-for="kvp in kvpValues" :key="kvp.key" :class="['custom-control','custom-checkbox',{'custom-control-inline':inline}]">
                     <input type="checkbox" :id="concat(id,'-',kvp.key)" :name="id" :value="kvp.key"
-                        :class="['form-check-input']" :checked="hasValue(kvp.key)" @change="onInputValues" />
+                        :class="['form-check-input']" :checked="hasValue(kvp.key)" @change="onInputValues" 
+                        v-bind="$attrs" />
                     <label class="form-check-label" :for="concat(id,'-',kvp.key)">{{kvp.value}}</label>
                 </div>
             </template>
@@ -20,7 +22,7 @@
         </div>
         <input v-if="!isCheck" :type="type" :id="id" :name="id" @input="onInput" :value="value"
             :class="['form-control',{'is-invalid':errorField},inputClass]"
-            :placeholder="placeholder" />
+            v-bind="$attrs" />
         <small v-if="!isCheck && help" class="text-muted">{{help}}</small>
         <div v-if="hasError" class="invalid-feedback">{{ errorField }}</div>
     </div>
@@ -46,7 +48,6 @@ export class Input extends Vue {
     @Prop({ default: null }) responseStatus!: object;
     @Prop({ default: 'text' }) type!: string;
     @Prop({ default: '' }) id!: string;
-    @Prop({ default: '' }) placeholder!: string;
     @Prop({ default: '' }) label!: string;
     @Prop({ default: '' }) help!: string;
     @Prop({ default: 'form-control-lg' }) inputClass!: string;
@@ -67,10 +68,10 @@ export class Input extends Vue {
     }
 
     @Emit('input')
-    protected onInput(e: InputEvent) { return e.target.value; }
+    protected onInput(e: InputEvent) { return (e.target as HTMLInputElement).value; }
 
     @Emit('input')
-    protected onInputValues(e: InputEvent) { return inputSelectedValues(e.target); }
+    protected onInputValues(e: InputEvent) { return inputSelectedValues((e as any).target); }
 
     protected hasValue(elValue: string) {
         return this.type === 'checkbox'
