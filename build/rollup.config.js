@@ -43,7 +43,7 @@ const globals = {
   'vue': 'Vue',
   'vue-router': 'VueRouter',
   'vue-class-component': 'VueClassComponent',
-  'vue-property-decorator': 'window["vue-property-decorator"]',
+  'vue-property-decorator': 'VuePropertyDecorator',
   '@servicestack/client': 'window["@servicestack/client"]',
 };
 
