@@ -76,14 +76,21 @@ if (!argv.format || argv.format === 'iife') {
   const unpkgConfig = {
     ...baseConfig,
     external,
-    output: {
-      compact: true,
+    output: [{
+      compact: false,
       file: 'dist/servicestack-vue.umd.js',
       format: 'iife',
       name: 'ServiceStackVue',
       exports: 'named',
       globals,
-    },
+    },{
+      compact: true,
+      file: 'dist/servicestack-vue.min.js',
+      format: 'iife',
+      name: 'ServiceStackVue',
+      exports: 'named',
+      globals,
+    }],
     plugins: [
       ...baseConfig.plugins.preVue,
       vue(baseConfig.plugins.vue),

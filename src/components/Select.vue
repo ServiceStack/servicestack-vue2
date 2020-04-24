@@ -44,7 +44,7 @@ export class Select extends Vue {
 
     @Emit('input')
     protected onInputValues(e: InputEvent) {
-        return this.multiple ? selectedOptions(e.target as any as HTMLSelectElement) : e.target.value;
+        return this.multiple ? selectedOptions(e.target as any as HTMLSelectElement) : (e.target as any).value;
     }
 }
 

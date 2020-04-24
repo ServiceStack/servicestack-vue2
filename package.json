@@ -40,7 +40,7 @@
     "dist/*"
   ],
   "main": "dist/index.js",
-  "unpkg": "dist/servicestack-vue.umd.js",
+  "unpkg": "dist/servicestack-vue.min.js",
   "module": "dist/index.js",
   "repository": {
     "type": "git",
