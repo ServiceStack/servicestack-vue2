@@ -3,11 +3,13 @@
         <v-link :to="opt.baseHref + item.href" :class="[navLinkCls, activeCls]" :id="id" :attrs="childProps" :exact="item.exact">
             {{item.label}}
         </v-link>
-        <div v-for="x in item.children" :key="x.href || x.label" :class="opt.childNavMenuClass" :aria-labelledby="id">
-            <div v-if="x.label === '-'" class="dropdown-divider" />
-            <v-link v-else :to="opt.baseHref + x.href" :class="[opt.childNavMenuItemClass, activeClassNav(x, useActivePath)]" :exact="x.exact">
-                {{x.label}}
-            </v-link>
+        <div :class="opt.childNavMenuClass" :aria-labelledby="id">
+            <template v-for="x in item.children">
+                <div v-if="x.label === '-'" class="dropdown-divider" :key="x.label" />
+                <v-link v-else :key="x.href || x.label" :to="opt.baseHref + x.href" :class="[opt.childNavMenuItemClass, activeClassNav(x, useActivePath)]" :exact="x.exact">
+                    {{x.label}}
+                </v-link>                   
+            </template>
         </div>
     </li>
 </template>
