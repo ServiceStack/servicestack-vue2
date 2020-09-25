@@ -20,7 +20,10 @@
             </template>
             <small v-if="help" class="text-muted">{{help}}</small>
         </div>
-        <input v-if="!isCheck" :type="type" :id="id" :name="id" @input="onInput" :value="value"
+        <textarea v-else-if="type === 'textarea'" :id="id" :name="id" @input="onInput" :value="value"
+            :class="['form-control',{'is-invalid':errorField},inputClass]"
+            v-bind="$attrs" />
+        <input v-else :type="type" :id="id" :name="id" @input="onInput" :value="value"
             :class="['form-control',{'is-invalid':errorField},inputClass]"
             v-bind="$attrs" />
         <small v-if="!isCheck && help" class="text-muted">{{help}}</small>
